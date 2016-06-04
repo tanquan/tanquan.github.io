@@ -4,6 +4,7 @@ title:  "MySQL二进制日志（binlog）"
 date:   2016-06-02 12:05:18 +0800
 categories: MySQL
 tags: MySQL InnoDB Binlog
+author: TanQuan
 ---
 
 * content

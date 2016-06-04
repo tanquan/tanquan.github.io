@@ -4,6 +4,7 @@ title:  "MySQL InnoDB锁和死锁"
 date:   2016-05-31 17:40:18 +0800
 categories: MySQL
 tags: MySQL InnoDB Lock
+author: TanQuan
 ---
 
 * content
