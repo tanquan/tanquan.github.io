@@ -47,13 +47,13 @@ InnoDB存储引擎的数据组织方式，是聚簇索引表：完整的记录�
 
 ### 1.2 二级索引(Secondary Indexes)
 
-除了聚簇索引其他索引都是二级索引。==在InnoDB中每个二级索引记录都包含了**这一行的主键列**和**当前这个二级索引包含的列**==。InnoDB使用二级索引中包含的主键取索引这一行对应的聚簇索引，进而找到这一行完整的数据。
+除了聚簇索引其他索引都是二级索引。在InnoDB中每个二级索引记录都包含了**这一行的主键列**和**当前这个二级索引包含的列**。InnoDB使用二级索引中包含的主键取索引这一行对应的聚簇索引，进而找到这一行完整的数据。
 
 如果主键很长，则二级索引会占有更多的空间，因此建议使用短的列做主键。
 
-![InnoDB锁和死锁_PrimaryKey_SecondaryKey](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_PrimaryKey_SecondaryKey.png)
+![InnoDB锁和死锁_PrimaryKey_SecondaryKey](https://i.imgur.com/V14BOOQ.png)
 
-![InnoDB锁和死锁_PrimaryKey_SecondaryKey_1](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_PrimaryKey_SecondaryKey_1.png)
+![InnoDB锁和死锁_PrimaryKey_SecondaryKey_1](https://i.imgur.com/CLKaFZu.png)
 
 ## 2. MySQL锁
 
@@ -169,7 +169,7 @@ tqdb@localhost.[tqdb] 18:48:07> select * from t7;
 
 现在Session A以共享锁获取num=4的数据，Session B想要插入数据，就有可能造成锁等待导致超时从而重启事务，因为Session A以共享锁获取num=4的数据，会产生gap锁将区间`(1, 4)`和区间`(4, 7)`锁住，因此这两个区间的插入会失败：
 
-![gap_lock](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_gap_lock.png)
+![gap_lock](https://i.imgur.com/eVLr6Jq.png)
 
 间隙锁在InnoDB的作用就是防止其它事务的插入操作，以此来达到防止幻读的发生。另外，在上面的例子中，我们选择的是一个普通（非唯一）索引字段来测试的，这不是随便选的，因为如果InnoDB扫描的是一个主键、或是一个唯一索引的话，那InnoDB只会采用行锁方式来加锁，而不会使用Next-Key Lock的方式，也就是说不会对索引之间的间隙加锁。
 
@@ -209,11 +209,11 @@ MySQL的两种read方式：
 
 快照读大大的提高了数据读取的并发。快照读的一个简单示意图，快照数据就是当前数据之前的版本数据，可能有多个版本的快照数据，每个快照数据中包含了版本信息(如时间戳等)：
 
-![snapshot_read](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_snapshot_read.png)
+![snapshot_read](https://i.imgur.com/of6kysM.png)
 
 为什么将插入/更新/删除操作，都归为当前读？可以看看下面这个更新操作，在数据库中的执行流程：
 
-![update-lock](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_update-lock.png)
+![update_lock](https://i.imgur.com/aDDm7vI.jpg)
 
 从图中，可以看到，一个Update操作的具体流程。当Update SQL被发给MySQL后，MySQL Server会根据where条件，读取第一条满足条件的记录，然后InnoDB引擎会将第一条记录返回，并加锁(current read)。待MySQL Server收到这条加锁的记录之后，会再发起一个Update请求，更新这条记录。一条记录操作完成，再读取下一条记录，直至没有满足条件的记录为止。因此，Update操作内部，就包含了一个当前读。同理，Delete操作也一样。Insert操作会稍微有些不同，简单来说，就是Insert操作可能会触发Unique Key的冲突检查，也会进行一个当前读。
 
@@ -263,7 +263,7 @@ tqdb@localhost.[tqdb] 14:04:57> select * from parent where id = 1;
 1 row in set (0.00 sec)
 ```
 
-![snapshot_read_RR](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_snapshot_read_RR.png)
+![snapshot_read_RR](https://i.imgur.com/E8oPUbj.png)
 
 下面是`Read Committed`的结果(Session B一旦提交，Session A未commit的情况下就能读到Session B提交的数据。)：
 
@@ -288,7 +288,7 @@ tqdb@localhost.[tqdb] 14:08:50> select * from parent where id = 1;
 1 row in set (0.00 sec)
 ```
 
-![snapshot_read_RC](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_snapshot_read_RC.png)
+![snapshot_read_RC](https://i.imgur.com/DlOgE28.png)
 
 ## 4. InnoDB MVCC
 
@@ -369,7 +369,7 @@ tqdb@localhost.[tqdb] 14:28:13> select * from parent where id = 1;
 1 row in set (0.00 sec)
 ```
 
-![phantom_read](http://7xsk51.com2.z0.glb.clouddn.com/InnoDB%E9%94%81%E5%92%8C%E6%AD%BB%E9%94%81_phantom_read.png)
+![phantom_read](https://i.imgur.com/1FCHwVL.png)
 
 那么，InnoDB指出的可以避免幻读是怎么回事呢？
 
@@ -485,32 +485,26 @@ update t set a=a+1 where b=93;
 ###### read阶段1：
 
 > **row_search_for_mysql，对找到的二级索引记录加 LOCK_X（LOCK_ORDINARY）锁（index->name=idx_b）**
->
 
 ###### read阶段2：
 
 > **row_search_for_mysql，对找到的主键索引记录加 LOCK_X（LOCK_REC_NOT_GAP）锁（index->name=PRIMARY）**
->
 
 ###### update阶段1：
 
 > **row_upd_clust_step，更新主键索引记录**
->
 
 ###### update阶段2：
 
 > **row_upd_sec_step，更新二级索引记录（node->index->name = idx_a_b）**
->
 
 ###### 接update阶段2：
 
 > **二级索引记录加锁LOCK_X(LOCK_REC_NOT_GAP)（index->name = idx_a_b）**
->
 
 ###### select阶段结束：
 
 > **锁住最后一条记录的下一条记录的间隙LOCK_X（LOCK_GAP），防止select阶段有数据插入（index->name=idx_b）**
->
 
 ### 总结
 
