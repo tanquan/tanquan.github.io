@@ -85,7 +85,7 @@ news.notice /var/log/news/news.notice
 日志有：对象.等级
 ```
 
-![对象.等级](../images/linux-log-manager-and-item-integration/对象-等级.png)
+![对象.等级](https://o8foyu42q.qnssl.com/tq_notes/linux-log-manager-and-item-integration/%E5%AF%B9%E8%B1%A1-%E7%AD%89%E7%BA%A7.png)
 
 ```
 
@@ -211,7 +211,7 @@ Feb 6 05:54:02 vm5 kernel: ip_tables: (C) 2000-2006 Netfilter Core Team
 项目说明：多台Web服务用用LVS进行负载均衡，并且多台Web服务器的apache日志由独立一台日志服务器来记录到syslog日志中。（这里主要介绍如何使用syslog日志服务远程管理apache日志）
 ```
 
-![logger](../images/linux-log-manager-and-item-integration/logger.gif)
+![logger](https://o8foyu42q.qnssl.com/tq_notes/linux-log-manager-and-item-integration/logger.gif)
 
 ```
 ∵apache本身有一套日志系统，记录在/var/log/httpd/中。现在想用独立的一台syslog日志服务器记录apache日志信息。
