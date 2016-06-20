@@ -61,6 +61,16 @@ layout: default
             </ul>
         {% endif %}
 
+        <hr>
+        <div class="post-recent">
+          {% if page.previous %}
+            <p>上一篇 <a href="{{ page.previous.url | prepend: site.baseurl }}">{{ page.previous.title }}</a></p>
+          {% endif %}
+          {% if page.next %}
+            <p>下一篇 <a href="{{ page.next.url | prepend: site.baseurl }}">{{ page.next.title }}</a></p>
+          {% endif %}
+        </div>
+        <hr>
 
         <h2 id="comments">Comments</h2>
         {% include comments.html %}
