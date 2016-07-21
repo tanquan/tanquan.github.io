@@ -35,9 +35,6 @@ msn:tanquan_is_slash[at]hotmail.com
 
 > 模板作者： [Gaohaoyang](http://gaohaoyang.github.io/){:target="_blank"}
 
-#### 友情链接
-
-> [羽毛的博客](http://wr4javaee.github.io/){:target="_blank"}
 
 
 ## Comments
