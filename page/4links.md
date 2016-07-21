@@ -5,6 +5,9 @@ permalink: /link/
 icon: link
 ---
 
+* content
+{:toc}
+
 ### 友情链接
 
 >
@@ -12,3 +15,8 @@ icon: link
 >
 > [dbtan 谈DB](http://www.dbtan.com/){:target="_blank"}
 >
+
+
+## Comments
+
+{% include comments.html %}
