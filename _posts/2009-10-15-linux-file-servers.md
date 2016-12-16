@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Linux配置DNS服务器"
-date:   2009-10-14 +0800
+title:  "Linux配置文件服务器"
+date:   2009-10-15 +0800
 categories: Linux
 tags: Linux
 author: dbtan

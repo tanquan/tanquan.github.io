@@ -34,6 +34,11 @@ ALTER TABLE <table_name> DROP UNUSED COLUMNS CHECKPOINT <n>;
 
 ![Marking Columns Unused](https://o8foyu42q.qnssl.com/tq_notes/%E6%A0%87%E8%AE%B0%E5%88%97%E4%B8%BA%E6%9C%AA%E4%BD%BF%E7%94%A8/Marking_Columns_Unused.png)
 
+
+
+
+
+
 ### 将列设为UNUSED时的系统行为
 
 #### 0. 实验环境 Oracle 11.2.0.4

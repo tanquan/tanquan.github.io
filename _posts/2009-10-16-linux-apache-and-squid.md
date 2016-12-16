@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Linux配置DNS服务器"
-date:   2009-10-14 +0800
+title:  "Linux apache服务器&squid代理服务器"
+date:   2009-10-16 +0800
 categories: Linux
 tags: Linux
 author: dbtan
@@ -12,6 +12,12 @@ author: dbtan
 
 ### 一、apache服务器：
 
+
+
+
+
+
+```
 安装包：（一个包）
 
 [root@vm51: ~]#rpm -qa | grep httpd
@@ -46,7 +52,7 @@ PidFile run/httpd.pid 记录下其PID ，可用此PID关此httpd进程；还可�
 
 Timeout 120 超时时间
 
-＃长连接：TCP三次握手后，可发多个http请求叫长连接；只发一个http请求，叫短连接。
+# 长连接：TCP三次握手后，可发多个http请求叫长连接；只发一个http请求，叫短连接。
 
 KeepAlive Off 默认：关闭长连接。但，一般，打开长连接比较好（提高效率）。
 
@@ -381,9 +387,11 @@ root 27873 0.0 0.2 3884 712 pts/2 S+ 17:13 0:00 grep httpd
 测试：http://10.0.4.51
 
 clip_image002
+```
 
 ### 二、squid代理服务器
 
+```
 安装包：（1个）
 
 [root@vm51: ~]#rpm -qa | grep squid
@@ -569,7 +577,7 @@ refresh_pattern ^ftp: 1440 20% 10080
 refresh_pattern ^gopher: 1440 0% 1440
 
 refresh_pattern . 0 20% 4320
-
+```
 
 
 透明代理：
@@ -580,6 +588,7 @@ squid结合iptables设置透明代理。
 
 步骤：（2步）
 
+```
 ⑴ 设置squid.conf
 
 [root@vm51: ~]#vim /etc/squid/squid.conf
@@ -613,5 +622,6 @@ target prot opt source destination
 Chain OUTPUT (policy ACCEPT)
 
 target prot opt source destination
+```
 
-- The End -
+-- The End --
