@@ -22,7 +22,7 @@ author: TanQuan
 
 
 
-### 如何修复被设置为 `UNUSED` 的字段
+### 如何修复被标记为 `UNUSED` 的字段
 
 #### 0. 实验环境 Oracle 11.2.0.4
 
