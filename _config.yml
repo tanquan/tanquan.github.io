@@ -9,7 +9,10 @@
 title: TQ's Notes
 brief-intro: Take notes, Reading...
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://tanquan.github.io" # the base hostname & protocol for your site
+# url: "http://tanquan.github.io" # the base hostname & protocol for your site
+url: "https://tanquan.me"
+enforce_ssl: tanquan.me
+
 
 permalink: /:year/:month/:day/:title/
 
