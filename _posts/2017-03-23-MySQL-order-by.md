@@ -75,3 +75,5 @@ limit 0,30;
 比上面麻烦的就是有多个分类组合的时候需要写多个sql
 
 -- The End --
+
+> 原文链接: [http://illegalaccess.com/2017/03/23/order-by/](http://illegalaccess.com/2017/03/23/order-by/ "http://illegalaccess.com/2017/03/23/order-by/")

@@ -39,3 +39,5 @@ spring jpa version:1.10.1
 没有任何技术含量,给自己的一个提醒,用惯了自动释放连接,以后得多注意
 
 -- The End --
+
+> 原文链接: [http://illegalaccess.com/2017/03/24/entity-manager/](http://illegalaccess.com/2017/03/24/entity-manager/ "http://illegalaccess.com/2017/03/24/entity-manager/")
