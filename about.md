@@ -28,7 +28,7 @@ qq: 82480004
 msn:tanquan_is_slash[at]hotmail.com
 ```
 
-你可以在 [http://www.dbtan.com](http://www.dbtan.com){:target="_blank"} 上找到关于作者的更多信息。
+你可以在 [https://dbtan.com](https://dbtan.com){:target="_blank"} 上找到关于作者的更多信息。
 
 
 #### 模板来源
