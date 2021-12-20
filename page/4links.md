@@ -13,7 +13,7 @@ icon: link
 >
 > [羽毛的博客](http://wr4javaee.github.io/){:target="_blank"}
 >
-> [dbtan 谈DB](http://www.dbtan.com/){:target="_blank"}
+> [dbtan 谈DB](https://dbtan.com/){:target="_blank"}
 >
 
 
